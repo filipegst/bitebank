@@ -10,4 +10,11 @@ fun main (){
     println("Numero da conta: $numeroConta")
     println("Saldo R$: $saldo")
 
+    if (saldo > 0.0){
+        println("conta possitiva")
+    } else if (saldo == 0.0){
+        println("conta neutra")
+    } else {
+        println("conta negativa")
+    }
 }

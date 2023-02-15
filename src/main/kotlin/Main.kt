@@ -21,26 +21,44 @@ fun main() {
     println()
     println("Depositando na conta da Yasmin")
     print("valor a depositar:")
-    deposita(contaYasmin, valor = readln().toDouble())
+    contaYasmin.deposita(valor = readln().toDouble())
     println("seu saldo é R$ ${contaYasmin.saldo}")
 
     println()
     println("Depositando na conta do Filipe")
     print("valor a depositar:")
-    deposita(contaFilipe, valor = readln().toDouble())
+    contaFilipe.deposita(valor = readln().toDouble())
     println("seu saldo é R$ ${contaFilipe.saldo}")
+
+    println()
+    println("Sacando na conta do Filipe")
+    print("valor a Sacar:")
+    contaFilipe.saca(valor = readln().toDouble())
+    println("seu saldo é de R$ ${contaFilipe.saldo}")
+
 }
-fun deposita (conta: Conta,valor:Double){
-   conta.saldo += valor
-}
+
 class Conta {
     var titular = ""
     var numeroConta = 0
     var saldo = 0.0
+    fun deposita(valor: Double) {
+        saldo += valor
 
-
-}
-
+    }
+    fun saca (valor: Double) {
+        while (true){
+            if (saldo >= valor) {
+                saldo -= valor
+                    break
+            } else {
+                println("saque em excesso, tente novamente")
+                saca(valor = readln().toDouble())
+                break
+            }
+        }
+    }
+    }
 
 
 //    while (saldo < 10.0) {

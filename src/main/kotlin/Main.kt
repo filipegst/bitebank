@@ -1,20 +1,14 @@
-
-
 fun main() {
     println("Bem vindo ao ByteBank !");
-    val contaFilipe = Conta()
-    contaFilipe.titular = "Filipe"
-    contaFilipe.numeroConta = 1000
-    contaFilipe.saldo = 1888.00
-    println("Titular :"+ contaFilipe.titular)
-    println("Conta numero: ${ contaFilipe.numeroConta}")
+    val contaFilipe = Conta(  "Filipe",1000)
+    contaFilipe.deposita(1888.00)
+    println("Titular :" + contaFilipe.titular)
+    println("Conta numero: ${contaFilipe.numeroConta}")
     println("seu saldo é R$: " + contaFilipe.saldo)
-   println()
-    val contaYasmin = Conta()
-    contaYasmin.titular = "Yasmin"
-    contaYasmin.numeroConta = 1001
-    contaYasmin.saldo = 1320.00
-     println("Titular :" + contaYasmin.titular)
+    println()
+    val contaYasmin = Conta("Yasmin",1001)
+    contaYasmin.deposita(1320.0)
+    println("Titular :" + contaYasmin.titular)
     println("Conta numero: " + contaYasmin.numeroConta)
     println("seu saldo é R$" + contaYasmin.saldo)
 
@@ -36,21 +30,32 @@ fun main() {
     contaFilipe.saca(valor = readln().toDouble())
     println("seu saldo é de R$ ${contaFilipe.saldo}")
 
+    println()
+    println("Transferindo na conta do Filipe")
+    print("Valor a transferir:")
+    contaFilipe.transfere(valor = readln().toDouble(), contaYasmin)
+    println("O saldo do Filipe é de :${contaFilipe.saldo}")
+    println("O saldo da Yasmin é de : ${contaYasmin.saldo}")
+
 }
 
-class Conta {
-    var titular = ""
-    var numeroConta = 0
+class Conta(var titular: String,
+            var numeroConta: Int) {
     var saldo = 0.0
+        private set
+
     fun deposita(valor: Double) {
-        saldo += valor
+        if (valor > 0) {
+            saldo += valor
+        }
 
     }
-    fun saca (valor: Double) {
-        while (true){
+
+    fun saca(valor: Double) {
+        while (true) {
             if (saldo >= valor) {
                 saldo -= valor
-                    break
+                break
             } else {
                 println("saque em excesso, tente novamente")
                 saca(valor = readln().toDouble())
@@ -58,7 +63,21 @@ class Conta {
             }
         }
     }
+
+    fun transfere(valor: Double, destino: Conta) {
+        while (true) {
+            if (saldo >= valor) {
+                saldo -= valor
+                destino.deposita(valor)
+                break
+            } else {
+                println("Transferencia em excesso, tente novamente")
+                transfere(valor = readln().toDouble(), destino)
+                break
+            }
+        }
     }
+}
 
 
 //    while (saldo < 10.0) {

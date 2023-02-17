@@ -1,7 +1,7 @@
-open class Conta(var titular: String,
+abstract class Conta(var titular: String,
                  val numeroConta: Int) {
     var saldo = 0.0
-        private set
+        protected set
 
    open fun deposita(valor: Double) {
         if (valor > 0) {
@@ -10,18 +10,7 @@ open class Conta(var titular: String,
 
     }
 
-   open fun saca(valor: Double) {
-        while (true) {
-            if (saldo >= valor) {
-                saldo -= valor
-                break
-            } else {
-                println("saque em excesso, tente novamente")
-                saca(valor = readln().toDouble())
-                break
-            }
-        }
-    }
+   abstract fun saca(valor: Double)
 
    open fun transfere(valor: Double, destino: Conta) {
         while (true) {

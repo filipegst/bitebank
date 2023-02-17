@@ -4,7 +4,7 @@ class Analista(
     salario: Double
 ):Funcionarios (nome = nome, cpf = cpf, salario = salario) {
 
-    override val bonificacao : Double get() = salario * 0.15
+    override val bonificacao : Double get() = salario * 0.10
 
 
 }

@@ -6,6 +6,15 @@ class ContaCorrente(
     numeroConta = numeroConta
 )  {
     override fun saca(valor: Double) {
-        super.saca(valor + 0.5)
+        while (true) {
+            if (saldo >= valor + 0.5) {
+                saldo -= valor +0.5
+                break
+            } else {
+                println("saque em excesso, tente novamente")
+                saca(valor = readln().toDouble())
+                break
+            }
+        }
     }
 }

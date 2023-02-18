@@ -9,8 +9,7 @@ fun testaAutenticacao() {
         cpf = "123.456.789-00",
         senha = 5678)
 
-    print("Digite a senha:")
-
+    print("Digite a senha do marco:")
     val sistema = SistemaInterno()
     sistema.entra(marco, senha = readln().toInt())
     sistema.entra(julia,senha = readln().toInt())

@@ -12,17 +12,5 @@ abstract class Conta(var titular: String,
 
    abstract fun saca(valor: Double)
 
-   open fun transfere(valor: Double, destino: Conta) {
-        while (true) {
-            if (saldo >= valor) {
-                saldo -= valor
-                destino.deposita(valor)
-                break
-            } else {
-                println("Transferencia em excesso, tente novamente")
-                transfere(valor = readln().toDouble(), destino)
-                break
-            }
-        }
-    }
+
 }

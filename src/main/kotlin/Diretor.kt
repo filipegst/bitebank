@@ -4,7 +4,7 @@ class Diretor(
      salario:Double,
      senha: Int,
      val plr: Double
-) :FuncionariosAdmin (nome = nome , cpf = cpf, salario = salario, senha = senha ),Autenticavel {
+) :FuncionariosAdmin (nome = nome , cpf = cpf, salario = salario, senha = senha ) {
 
     override val bonificacao: Double get () = salario *0.25
 }

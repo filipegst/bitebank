@@ -13,5 +13,5 @@ fun testaAutenticacao() {
 
     val sistema = SistemaInterno()
     sistema.entra(marco, senha = readln().toInt())
-    julia.autentica(senha = readln().toInt())
+    sistema.entra(julia,senha = readln().toInt())
 }

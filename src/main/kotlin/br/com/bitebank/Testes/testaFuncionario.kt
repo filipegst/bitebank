@@ -1,3 +1,10 @@
+package br.com.bitebank.Testes
+
+import br.com.bitebank.Modelo.Analista
+import br.com.bitebank.Modelo.CalculadoraBonificacao
+import br.com.bitebank.Modelo.Diretor
+import br.com.bitebank.Modelo.Gerente
+
 fun testaFuncionario () {
     val amanda = Analista(
         nome = "Amanda",
@@ -22,38 +29,38 @@ fun testaFuncionario () {
         cpf = "444.444.444-44",
         salario = 2500.00
     )
-    println("Analista jr: ${amanda.nome}")
+    println("Modelo.Analista jr: ${amanda.nome}")
     println("CPF:${amanda.cpf}")
     println("Salario:${amanda.salario}")
     println("Bonificação:${amanda.bonificacao}")
 
     println()
-    println("Analista:${maria.nome}")
+    println("Modelo.Analista:${maria.nome}")
     println("CPF: ${maria.cpf}")
     println("Salario: ${maria.salario}")
     println("Bonificação:${maria.bonificacao}")
 
     println()
-    print("Digite a senha do Gerente:")
+    print("Digite a senha do Modelo.Gerente:")
     if (julio.autentica(senha = readln().toInt())) {
         println("##############" )
         println("senha correta")
         println("##############")
         println()
-        println("Gerente: ${julio.nome}")
+        println("Modelo.Gerente: ${julio.nome}")
         println("CPF:${julio.cpf}")
         println("Salario:${julio.salario}")
         println("Bonificação:${julio.bonificacao}")
     }
 
     println()
-    print("Digite a senha do Diretor:")
+    print("Digite a senha do Modelo.Diretor:")
     if (diego.autentica(senha = readln().toInt())) {
         println("##############")
         println("senha correta")
         println("##############")
         println()
-        println("Gerente: ${diego.nome}")
+        println("Modelo.Gerente: ${diego.nome}")
         println("CPF:${diego.cpf}")
         println("Salario:${diego.salario}")
         println("Bonificação:${diego.bonificacao}")

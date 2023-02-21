@@ -1,10 +1,12 @@
+package br.com.bitebank.Modelo
+
 class ContaCorrente(
-    titular: String,
+    titular: Cliente,
     numeroConta: Int
-): Conta (
+): Conta(
     titular = titular,
     numeroConta = numeroConta
-),Transferivel  {
+), Transferivel {
     override fun transfere(valor: Double, destino: Conta) {
         while (true) {
             if (saldo >= valor) {

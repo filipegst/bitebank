@@ -1,5 +1,7 @@
+package br.com.bitebank.Modelo
+
 class ContaSalario(
-    titular: String,
+        titular: Cliente,
     numeroConta: Int
 ): Conta(titular = titular,
         numeroConta=numeroConta) {

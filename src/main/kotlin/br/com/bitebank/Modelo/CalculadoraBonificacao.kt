@@ -1,3 +1,5 @@
+package br.com.bitebank.Modelo
+
 class CalculadoraBonificacao {
     var total: Double = 0.0
         private set

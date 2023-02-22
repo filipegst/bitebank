@@ -1,6 +1,7 @@
 package br.com.bitebank.Testes
 
 import br.com.bitebank.Modelo.Cliente
+import br.com.bitebank.Modelo.Endereco
 import br.com.bitebank.Modelo.Gerente
 import br.com.bitebank.Modelo.SistemaInterno
 

@@ -10,6 +10,7 @@ fun testaContasDiferentes() {
 
     val junior = ContaCorrente(titular = Cliente(nome = "Junior", cpf = "22", senha = 321, endereco = Endereco("Murilo de sena", numerodoendereco = 42)), numeroConta = 1001)
     val miriam = ContaPoupanca(titular = Cliente(nome = "Miriam", cpf = "2323",senha = 456), numeroConta = 1002)
+    val jose = ContaPoupanca(titular = Cliente(nome = "José", cpf = "852",senha = 111, endereco = Endereco (rua = "getulio de solto", numerodoendereco = 80)), numeroConta = 1003,)
 
     println(miriam.titular.nome)
     println(miriam.saldo)

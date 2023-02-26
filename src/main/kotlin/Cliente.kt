@@ -1,7 +1,10 @@
+package br.com.bitebank.Modelo
+
 class Cliente (
     val nome: String,
     val cpf: String,
-    val senha : Int
+    var endereco: Endereco = Endereco(),
+    private val senha : Int
 ) : Autenticavel {
     override fun autentica(senha: Int): Boolean {
         while (true) {

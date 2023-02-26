@@ -1,15 +1,25 @@
+package br.com.bitebank.Testes
+
+import br.com.bitebank.Modelo.Cliente
+import br.com.bitebank.Modelo.ContaCorrente
+import br.com.bitebank.Modelo.ContaPoupanca
+
 fun testaComportamentoConta() {
     println("Bem vindo ao ByteBank !");
-    val contaFilipe = ContaCorrente("Filipe", 1000)
+    val clienteFilipe = Cliente (nome = "Filipe", cpf = "", senha = 1)
+    val contaFilipe = ContaCorrente(clienteFilipe, 1000)
     contaFilipe.deposita(1888.00)
     println("Titular :" + contaFilipe.titular)
-    println("Conta numero: ${contaFilipe.numeroConta}")
+    println("Modelo.Conta numero: ${contaFilipe.numeroConta}")
     println("seu saldo é R$: " + contaFilipe.saldo)
     println()
-    val contaYasmin = ContaPoupanca("Yasmin", 1001)
+
+    val clienteYasmin = Cliente (nome = "Yasmin", cpf = "1", senha = 22)
+
+    val contaYasmin = ContaPoupanca(clienteYasmin, 1001)
     contaYasmin.deposita(1320.0)
     println("Titular :" + contaYasmin.titular)
-    println("Conta numero: " + contaYasmin.numeroConta)
+    println("Modelo.Conta numero: " + contaYasmin.numeroConta)
     println("seu saldo é R$" + contaYasmin.saldo)
 
     println()

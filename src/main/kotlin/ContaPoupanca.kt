@@ -1,5 +1,7 @@
-class ContaPoupanca(
-    titular: String,
+package br.com.bitebank.Modelo
+
+class ContaSalario(
+        titular: Cliente,
     numeroConta: Int
 ): Conta(titular = titular,
         numeroConta=numeroConta) {

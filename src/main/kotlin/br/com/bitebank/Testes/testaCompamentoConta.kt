@@ -1,5 +1,6 @@
 package br.com.bitebank.Testes
 
+import br.com.bitebank.Exceptions.SaldoInsuficienteException
 import br.com.bitebank.Modelo.Cliente
 import br.com.bitebank.Modelo.ContaCorrente
 import br.com.bitebank.Modelo.ContaPoupanca
@@ -9,7 +10,7 @@ fun testaComportamentoConta() {
     val clienteFilipe = Cliente (nome = "Filipe", cpf = "", senha = 1)
     val contaFilipe = ContaCorrente(clienteFilipe, 1000)
     contaFilipe.deposita(1888.00)
-    println("Titular :" + contaFilipe.titular)
+    println("Titular :" + contaFilipe.titular.nome)
     println("Modelo.Conta numero: ${contaFilipe.numeroConta}")
     println("seu saldo é R$: " + contaFilipe.saldo)
     println()
@@ -18,7 +19,7 @@ fun testaComportamentoConta() {
 
     val contaYasmin = ContaPoupanca(clienteYasmin, 1001)
     contaYasmin.deposita(1320.0)
-    println("Titular :" + contaYasmin.titular)
+    println("Titular :" + contaYasmin.titular.nome)
     println("Modelo.Conta numero: " + contaYasmin.numeroConta)
     println("seu saldo é R$" + contaYasmin.saldo)
 
@@ -43,7 +44,14 @@ fun testaComportamentoConta() {
     println()
     println("Transferindo na conta do Filipe")
     print("Valor a transferir:")
-    contaFilipe.transfere(valor = readln().toDouble(), contaYasmin)
+    try {
+        contaFilipe.transfere(valor = readln().toDouble(), contaYasmin)
+        println("Transferencia sucedida")
+    } catch (e: Exception) {
+        println("ERRO ao Transferir")
+        e.printStackTrace()
+    }
+
     println("O saldo do Filipe é de :${contaFilipe.saldo}")
     println("O saldo da Yasmin é de : ${contaYasmin.saldo}")
 }
